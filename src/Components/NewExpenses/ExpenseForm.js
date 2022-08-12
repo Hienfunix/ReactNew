@@ -67,6 +67,7 @@ const ExpenseForm = (props) => {
                 <input type='number' min='0.01' step='0.01' value={enteredAmount} />
             </div>
             <div className='new-expense__control'>
+                <button type='button' onClick={props.onCancel}>Cancel</button>
                 <button type='submit'>Add Expense</button>
             </div>
         </div> 
