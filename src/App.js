@@ -5,22 +5,33 @@ import './App.css';
 
 function App() {
     const [movie,setMovie] = useState([])
-    const [loading,setLoading] = useState(Boolean);
+    const [isLoading,setIsLoading] = useState(Boolean);
+    const [error,setError] = useState(null);
     async function fetchMovieHandler (){
-      setLoading(true);
-      const response = await fetch('https://swapi.py4e.com/api/films/');
-      const data = await response.json();
-      const transformedMovies = data.results.map(movieData => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          openingText: movieData.opening_crawl,
-          releaseDate: movieData.release_date
-        };
-       })
+      
+      setIsLoading(true);
+      setError(null);
+      try{
+        const response = await fetch('https://swapi.py4e.com/api/films/');
+        if(!response.ok) {
+          throw new Error ('something went Wront');
+        }
+        const data = await response.json();
+        const transformedMovies = data.results.map(movieData => {
+          return {
+            id: movieData.episode_id,
+            title: movieData.title,
+            openingText: movieData.opening_crawl,
+            releaseDate: movieData.release_date
+         };
+        })
        setMovie(transformedMovies)
-       setLoading(false);
-
+       
+      }
+      catch(error){
+        setError(error.message);
+      }
+      setIsLoading(false); 
       }
 
 
@@ -30,9 +41,10 @@ function App() {
         <button onClick={fetchMovieHandler}>Fetch Movies</button>
       </section>
       <section>
-        {!loading && movie.length > 0 && <MoviesList movies={movie} />}
-        {!loading && movie.length === 0 && <p> Found no Movie </p>}
-        {loading && <p>Loading...</p>}
+        {!isLoading && movie.length > 0 && <MoviesList movies={movie} />}
+        {!isLoading && movie.length === 0 && error && <p> {error} </p>}
+        {!isLoading && movie.length === 0 && !error && <p> Found no Movie </p>}
+        {isLoading && <p>Loading...</p>}
         <MoviesList movies={movie} />
       </section>
     </React.Fragment>
