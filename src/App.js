@@ -4,7 +4,7 @@ import MoviesList from './components/MoviesList';
 import './App.css';
 
 function App() {
-    const [movie,setMovie] = useState('')
+    const [movie,setMovie] = useState([])
 
     function fetchMovieHandler (){
       fetch('https://swapi.py4e.com/api/films/') 
@@ -23,10 +23,11 @@ function App() {
        setMovie(transformedMovies)
       })
     }
+
   return (
     <React.Fragment>
       <section>
-        <button>Fetch Movies</button>
+        <button onClick={fetchMovieHandler}>Fetch Movies</button>
       </section>
       <section>
         <MoviesList movies={movie} />
