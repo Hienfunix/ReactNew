@@ -1,4 +1,4 @@
-import './App.css';
+import classes from './App.module.css';
 import { Routes, Route, Navigate} from 'react-router-dom';
 import React from 'react';
 import CartPage from './Pages/CartPage';
@@ -12,7 +12,7 @@ import WrongPage from './Pages/WrongPage';
 
 function App() {
   return (
-  <div>
+  <div class={classes.app}>
     <Routes>
       <Route path='/' element={<Navigate to='/home' />}/>
       <Route path='/home' element={<HomePage />}/>

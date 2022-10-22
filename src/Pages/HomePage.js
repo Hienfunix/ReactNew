@@ -1,9 +1,11 @@
-
+import Navbar from "../Components/Navbar"
+import Footer from "../Components/Footer"
 const HomePage = (props) => {
     return (
         <div>
-           {/* <p> Welcome To Home Page </p> */}
+           <Navbar />
            Welcome To Home Page
+           <Footer />
         </div>
     )
 }
