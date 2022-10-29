@@ -1,20 +1,25 @@
 import classes from './Navbar.module.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from  'react-redux';
+import { fetchDataActions } from '../store/fetchdata';
+import { useEffect} from 'react';
 
 const Navbar = (props) => {
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const homeClickHandle = () => navigate('/home');
     const shopClickHandle =() => navigate('/shop')
     const cartClickHandle =() => navigate('/cart')
     const loginClickHandle =() => navigate('/login')
+
+    async function fetchProducts(){
+        const response = await fetch('https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74');
+        const data = await response.json();
+        dispatch(fetchDataActions.getData(data));
+    }  
     
-    // useEffect = {() => {
-    //     re
-    // },}
-    // const activeLink = (navData) => navData.isActive ? classes.active : '';
+    useEffect(() => {fetchProducts()},[]);
     return (
         <div className={classes.navbar} >
             <div className={classes.leftPart}>

@@ -5,7 +5,7 @@ const CartPage = (props) => {
     return (
         <div>
             <Navbar />
-            Welcome To Cart Page
+              Welcome To Cart Page
             <Footer />
             
         </div>

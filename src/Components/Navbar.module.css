@@ -14,14 +14,16 @@
     color: black
 } */
 .leftPart p:hover, .rightPart p:hover, .leftPart p:active, .rightPart p:hover{
-    color: orange
+    color: orange;
+    cursor: pointer;
 }
 .leftPart p:focus, .rightPart p:focus, .leftPart p:active, .rightPart p:focus{
-    color: orange
-}
-/* .navbar a.active{
     color: orange;
-} */
+    cursor: pointer;
+}
+.navbar a.visited{
+    color: orange;
+}
 .leftPart {
     position:relative;
     display:flex;
