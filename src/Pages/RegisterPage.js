@@ -1,8 +1,12 @@
-
+import Signup from "../Components/AuthPage/Signup"
+import Navbar from "../Components/Navbar"
+import Footer from "../Components/Footer"
 const RegisterPage = (props) => {
     return (
         <div>
-            Welcome To Register Page
+            <Navbar />
+            <Signup />
+            <Footer />
         </div>
     )
 }

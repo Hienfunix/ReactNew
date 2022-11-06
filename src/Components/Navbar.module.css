@@ -7,7 +7,6 @@
     justify-content: space-between;
     align-items: center;
     font-style: italic;
-    
 }
 /* .navbar a{
     text-decoration: none;
@@ -21,9 +20,9 @@
     color: orange;
     cursor: pointer;
 }
-.navbar a.visited{
+/* .navbar a.visited{
     color: orange;
-}
+} */
 .leftPart {
     position:relative;
     display:flex;

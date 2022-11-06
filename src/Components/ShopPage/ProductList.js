@@ -9,7 +9,6 @@ const ProductList = (props) => {
     const dataProduct = useSelector(state => state.category.category); //Lấy dữ liệu từ click menu navbar dọc
     const [products,setProducts] = useState(''); 
     const [isProducts,setIsProducts] = useState(false);
-    const dispatch = useDispatch();
 
     // đường dẫn tới Detail Page khi click vào sản phẩm
     const navigate = useNavigate();
