@@ -10,9 +10,9 @@ import ShopPage from './Pages/ShopPage';
 import HomePage from './Pages/HomePage';
 import WrongPage from './Pages/WrongPage';
 /*Các phần vẫn chưa hoàn thành: 
- + Mục 3 tạo link cho footer
- + Tạo Active hiển thị màu cam khi vào trang shop home ... 
- + Mục 6 chưa tạo active hiển thị màu cam cho leftnavbar*/
+ + Mục 6 chưa tạo active hiển thị màu cam cho leftnavbar
+ */
+ 
 function App() {
   return (
   <div class={classes.app}>

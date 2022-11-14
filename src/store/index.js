@@ -4,6 +4,7 @@ import categoryReducer from './category';
 import fetchdataReducer from './fetchdata';
 import authReducer from './auth';
 import userReducer from './user'
+import cartReducer from './cart';
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         fetchdata: fetchdataReducer,
         auth: authReducer,
         user: userReducer,
+        cart: cartReducer,
     }
 });
 

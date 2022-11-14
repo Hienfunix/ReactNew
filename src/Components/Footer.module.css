@@ -16,13 +16,21 @@
     margin-bottom: 20px;
 }
 .footer p {
-    color:rgba(255, 255, 255, 0.349);
+    
     font-size:1rem;
     margin: 5px 0px;
+    
+}
+
+.footer p a {
+    color:rgba(255, 255, 255, 0.349);
+    text-decoration: none;
 }
 .column1{
     position:relative;
-    flex:33.33%
+    flex:33.33%;
+    /* display:flex; */
+    /* flex-wrap: wrap; */
 
 }
 

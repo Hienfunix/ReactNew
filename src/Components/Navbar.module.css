@@ -12,11 +12,11 @@
     text-decoration: none;
     color: black
 } */
-.leftPart p:hover, .rightPart p:hover, .leftPart p:active, .rightPart p:hover{
+.leftPart p:hover, .rightPart p:hover{
     color: orange;
     cursor: pointer;
 }
-.leftPart p:focus, .rightPart p:focus, .leftPart p:active, .rightPart p:focus{
+.leftPart .active, .rightPart .active {
     color: orange;
     cursor: pointer;
 }

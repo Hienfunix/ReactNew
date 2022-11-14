@@ -37,3 +37,7 @@
     color: black;
     background-color: rgb(239, 244, 239);
 }
+
+.leftNavbar .active {
+    color: orange;
+}

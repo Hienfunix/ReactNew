@@ -3,8 +3,8 @@ const Banner = (props) => {
     return(
         <div className={classes.banner}>
             <div className={classes.center}>
-                <h1> SHOP </h1>
-                <p> SHOP </p>
+                <h1> {props.title1} </h1>
+                 <p> <span>{props.title3}</span> <p>{props.title2}</p> </p>
             </div>
         </div>
     )

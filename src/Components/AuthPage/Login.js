@@ -69,7 +69,20 @@ const Login = (props) => {
                     <h3>Chào {userLogin.name}</h3>
                 </React.Fragment>
         )}
-        if(isLogin === undefined){console.log(undefined)}
+        if(isLogin === undefined){return(
+            <React.Fragment>
+                <h1>Sign In</h1>
+                <div className={classes.control}>
+                    <input type='email'placeholder='Email' form='form1'required ref={inputEmailRef}/>
+                    <input type='password'placeholder='Password' form='form1' required ref={inputPasswordRef}/>
+                </div>
+                    <button className={classes.bt}>SIGN IN</button>
+                <div className={classes.last}>
+                    <p>Create an account? </p>
+                    <button onClick={toSignupHandler}>Sign up</button>
+                </div>
+            </React.Fragment>
+        )}
         else {
             return(
                 <React.Fragment>
