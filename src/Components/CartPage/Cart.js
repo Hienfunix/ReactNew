@@ -11,10 +11,14 @@ const Cart = (props) => {
     const priceTotal = useSelector(state => state.cart.priceTotal);
     const dataPrice = products.map(product => {return parseInt(product.cart.price)*product.quantity})
     dispatch(cartActions.PLUS_PRICE(dataPrice))
-
+    console.log(products.length)
     // Hiển thị thông tin đơn hàng  
     const showProducts = () => {
         return products.map(product => {
+            if (product.cart._id.$oid === '') {
+                return console.log('chua co product')
+            }
+            else{
             const productPrice =  product.cart.price;
             const quantity = product.quantity;
             const subtotalPrice = parseInt(productPrice) * quantity;
@@ -23,6 +27,7 @@ const Cart = (props) => {
             const deleteClickHandler = (event => {
                 event.preventDefault();
                     dispatch(cartActions.DELETE_CART(product.cart._id.$oid));
+                    
             })
 
             //Hàm khi click vào tăng số lượng sản phẩm đã click 
@@ -55,7 +60,7 @@ const Cart = (props) => {
                         <div className={classes.column}>{subtotalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VND</div>
                         <div className={classes.column} onClick={deleteClickHandler}><i class="bi bi-trash"></i></div>
                     </div>
-            )
+            )}
         })
         
     }
@@ -63,12 +68,11 @@ const Cart = (props) => {
     //cập nhật trên Local Storage
     const updateLocalStorage = () => {
         if(products.length === 0){
-            return ''}
+            return localStorage.setItem('listCart',JSON.stringify(products))}
         else if(products.length >0 &&  products[0].quantity === 0 ){
-            return ''}
+            return console.log('không có số lượng')}
         else{localStorage.setItem('listCart',JSON.stringify(products));}
     }
-
     const backToShopPage = () => {
         navigate('/shop')
     }
